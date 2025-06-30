@@ -1,23 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pl">
 <head>
-  <meta name="description" content="Webpage description goes here" />
-  <meta charset="utf-8">
-  <title>Change_me</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logopeda – dzieci rosyjskojęzyczne | Marki</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #03a9f4;
+      --secondary: #b3e5fc;
+      --text-color: #333;
+      --max-width: 960px;
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #f5f7fa;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: var(--secondary);
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+    }
+
+    #lang-switch {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    nav {
+      background-color: var(--primary);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.8rem 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0.5rem 1rem;
+      font-weight: bold;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    ul {
+      list-style: disc inside;
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    /* Przycisk call na mobile */
+    .call-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+    }
+
+    .call-btn a {
+      color: white;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .call-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 16px;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
 <body>
-  
-<div class="container">
-  Hello World!
+
+<header>
+  <button id="lang-switch">RU</button>
+  <h1>Logopeda – dzieci rosyjskojęzyczne</h1>
+  <p id="intro-pl">Indywidualna terapia mowy w Markach</p>
+  <p id="intro-ru" style="display:none;">Индивидуальная логопедическая терапия в г. Марки</p>
+</header>
+
+<nav>
+  <a href="#o-mnie">O mnie</a>
+  <a href="#oferta">Oferta</a>
+  <a href="#dlaczego">Dlaczego ja?</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<main>
+  <section id="o-mnie">
+    <h2>O mnie</h2>
+    <p class="lang lang-pl">Jestem logopedą z doświadczeniem w pracy z dziećmi rosyjskojęzycznymi. Pomagam dzieciom w wieku przedszkolnym w Markach rozwijać mowę w przyjaznej atmosferze.</p>
+    <p class="lang lang-ru" style="display:none;">Я логопед с опытом работы с русскоязычными детьми. Помогаю детям дошкольного возраста в г. Марки развивать речь в дружеской атмосфере.</p>
+  </section>
+
+  <section id="oferta">
+    <h2>Oferta</h2>
+    <ul class="lang lang-pl">
+      <li>Diagnoza dzieci dwujęzycznych</li>
+      <li>Terapia wad wymowy</li>
+      <li>Rozwój słownictwa</li>
+      <li>Zajęcia przez zabawę</li>
+    </ul>
+    <ul class="lang lang-ru" style="display:none;">
+      <li>Диагностика для билингвов</li>
+      <li>Коррекция нарушений произношения</li>
+      <li>Развитие словарного запаса</li>
+      <li>Игровые занятия</li>
+    </ul>
+  </section>
+
+  <section id="dlaczego">
+    <h2>Dlaczego warto?</h2>
+    <p class="lang lang-pl">Dwujęzyczne dzieci potrzebują indywidualnego podejścia. Dzięki znajomości języka rosyjskiego i polskiego mogę wspierać dzieci naturalnie i skutecznie.</p>
+    <p class="lang lang-ru" style="display:none;">Двуязычные дети нуждаются в индивидуальном подходе. Благодаря знанию русского и польского я помогаю детям естественно и эффективно.</p>
+  </section>
+
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p><strong>Lokalizacja:</strong> Marki, woj. mazowieckie</p>
+    <p><strong>Telefon:</strong> <a href="tel:+48123456789">+48 123 456 789</a></p>
+    <p><strong>Email:</strong> kontakt@logopeda-marki.pl</p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Logopeda – Marki. Wszystkie prawa zastrzeżone.</p>
+</footer>
+
+<!-- Przycisk "zadzwoń teraz" -->
+<div class="call-btn">
+  <a href="tel:+48123456789">📞</a>
 </div>
 
 <script>
+  // Język – przełącznik
+  const langSwitch = document.getElementById('lang-switch');
+  langSwitch.addEventListener('click', () => {
+    const pl = document.querySelectorAll('.lang-pl');
+    const ru = document.querySelectorAll('.lang-ru');
+    const introPl = document.getElementById('intro-pl');
+    const introRu = document.getElementById('intro-ru');
+    const isPl = langSwitch.innerText === 'RU';
+
+    pl.forEach(el => el.style.display = isPl ? 'none' : 'block');
+    ru.forEach(el => el.style.display = isPl ? 'block' : 'none');
+    introPl.style.display = isPl ? 'none' : 'block';
+    introRu.style.display = isPl ? 'block' : 'none';
+    langSwitch.innerText = isPl ? 'PL' : 'RU';
+  });
+
+  // Animacje przy scrollowaniu
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
 </script>
 
 </body>
